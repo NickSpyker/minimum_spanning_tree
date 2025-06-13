@@ -52,6 +52,6 @@ Mkfile.old
 dkms.conf
 
 # Project
+test_outputs/
 .vscode/
-output_mst.txt
 mst

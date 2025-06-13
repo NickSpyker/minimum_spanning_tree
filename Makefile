@@ -19,10 +19,8 @@ run: $(NAME)
 	./$(NAME) input_mst.txt output_mst.txt
 
 test: $(NAME)
-	python3 ./test/run_tests.py
-
-test-performance: $(NAME)
-	python3 ./test/test_performance.py
+	python3 ./test/functional_tests.py
 
 clean:
 	$(RM) $(OBJ) $(NAME) output_mst.txt
+	$(RM) -r test_outputs/
