@@ -8,7 +8,7 @@ OBJ := $(SRC:.c=.o)
 
 NAME := mst
 
-.PHONY: all $(NAME) run clean
+.PHONY: all $(NAME) run clean test test-performance
 
 all: $(NAME)
 
@@ -17,6 +17,12 @@ $(NAME): $(OBJ)
 
 run: $(NAME)
 	./$(NAME) input_mst.txt output_mst.txt
+
+test: $(NAME)
+	python3 ./test/run_tests.py
+
+test-performance: $(NAME)
+	python3 ./test/test_performance.py
 
 clean:
 	$(RM) $(OBJ) $(NAME) output_mst.txt
