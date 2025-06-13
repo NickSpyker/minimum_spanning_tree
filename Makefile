@@ -1,12 +1,12 @@
-CC = gcc
+CC := gcc
 
-CFLAGS = -W -Wall -Wextra -Werror -O2
+CFLAGS := -W -Wall -Wextra -Werror -O2
 
-SRC	= ./src/main.c
+SRC	:= ./src/main.c
 
-OBJ = $(SRC:.c=.o)
+OBJ := $(SRC:.c=.o)
 
-NAME = mst
+NAME := mst
 
 .PHONY: all $(NAME) run clean
 
@@ -19,4 +19,4 @@ run: $(NAME)
 	./$(NAME) input_mst.txt output_mst.txt
 
 clean:
-	$(RM) $(OBJ) $(NAME)
+	$(RM) $(OBJ) $(NAME) output_mst.txt
