@@ -2,7 +2,7 @@ CC = gcc
 
 CFLAGS = -W -Wall -Wextra -Werror -O2
 
-SRC	= main.c
+SRC	= ./src/main.c
 
 OBJ = $(SRC:.c=.o)
 
