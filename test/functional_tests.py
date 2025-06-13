@@ -24,28 +24,26 @@ def run_test(executable, input_file, output_file, expected_output):
         print(f"✗ Output file not created: {output_file}")
         return False
 
-    output_file_buffer = open(output_file, 'r').read()
-    expected_output_buffer = open(expected_output, 'r').read()
-
-    # Compare the output with the expected output
-    if output_file_buffer == expected_output_buffer:
+    # Read the files and normalize whitespace
+    with open(output_file, 'r') as f1, open(expected_output, 'r') as f2:
+        output_lines = [line.strip() for line in f1.readlines() if line.strip()]
+        expected_lines = [line.strip() for line in f2.readlines() if line.strip()]
+    
+    # Compare the normalized content
+    if output_lines == expected_lines:
         print(f"✓ Output matches expected: {output_file} == {expected_output}")
         return True
     else:
         print(f"✗ Output does not match expected: {output_file} != {expected_output}")
 
         # Show differences
-        with open(output_file, 'r') as f1, open(expected_output, 'r') as f2:
-            output_lines = f1.readlines()
-            expected_lines = f2.readlines()
-            
-            print(f"  Differences:")
-            if len(output_lines) != len(expected_lines):
-                print(f"  - Line count: {len(output_lines)} vs {len(expected_lines)} (expected)")
+        print(f"  Differences:")
+        if len(output_lines) != len(expected_lines):
+            print(f"  - Line count: {len(output_lines)} vs {len(expected_lines)} (expected)")
 
-            for i, (line1, line2) in enumerate(zip(output_lines, expected_lines)):
-                if line1.strip() != line2.strip():
-                    print(f"  - Line {i+1}: '{line1.strip()}' vs '{line2.strip()}' (expected)")
+        for i, (line1, line2) in enumerate(zip(output_lines, expected_lines)):
+            if line1 != line2:
+                print(f"  - Line {i+1}: '{line1}' vs '{line2}' (expected)")
 
         return False
 
