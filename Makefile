@@ -8,7 +8,7 @@ OBJ := $(SRC:.c=.o)
 
 NAME := mst
 
-.PHONY: all $(NAME) run clean test test-performance
+.PHONY: all $(NAME) run clean test
 
 all: $(NAME)
 
