@@ -30,7 +30,7 @@ typedef struct {
 
 /**
  * createMinHeap(capacity):
- *   Allocate & return an empty min-heap for 'capacity' vertices.
+ *   Allocate & return an empty min-heap for capacity vertices.
  */
 MinHeap* createMinHeap(int capacity) {
     MinHeap *h = malloc(sizeof(*h));
@@ -107,7 +107,7 @@ static inline bool isEmpty(MinHeap *h) {
 /**
  * extractMin(h):
  *   Remove & return the root (smallest) node.
- *   Marks its pos[] = 0 so it's no longer "in the heap."
+ *   Marks its pos[] = 0 so it's no longer in the heap.
  */
 HeapNode extractMin(MinHeap *h) {
     if (isEmpty(h)) {
@@ -170,7 +170,7 @@ void addEdge(Edge **adj, int u, int v, int w) {
 /**
  * readGraph(fname, &n, &src):
  *   Reads first line: n m src,
- *   then m lines of "u v w". Builds an undirected graph.
+ *   then m lines of u v w. Builds an undirected graph.
  */
 Edge** readGraph(const char *fname, int *n, int *src) {
     FILE *f = fopen(fname, "r");
@@ -200,7 +200,7 @@ Edge** readGraph(const char *fname, int *n, int *src) {
 
 /**
  * writeResult(fname, n, parent[], src):
- *   Outputs each v: "v<TAB>parent[v]\n" or "v<TAB>NIL\n" for the source.
+ *   Outputs each v: v<TAB>parent[v]\n or v<TAB>NIL\n for the source.
  */
 void writeResult(const char *fname, int n, int *parent, int src) {
     FILE *f = fopen(fname, "w");
